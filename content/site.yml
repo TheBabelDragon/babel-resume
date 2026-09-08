@@ -10,6 +10,7 @@ site:
   github_user: "TheBabelDragon"
   github_org_url: "https://github.com/TheBabelDragon"
   repo: "TheBabelDragon/babel-resume"
+  site_url: "https://thebabeldragon.github.io/babel-resume/"
   base_path: "/babel-resume"
   lab_label: "ENGINEERING / LAB"
 
@@ -23,9 +24,15 @@ navigation:
   - id: lab
     label: Lab
     href: /lab/
+  - id: timeline
+    label: Timeline
+    href: /timeline/
   - id: principle
     label: Principle
     href: /principle/
+  - id: tech
+    label: Index
+    href: /tech/
   - id: github
     label: GitHub
     href: https://github.com/TheBabelDragon
