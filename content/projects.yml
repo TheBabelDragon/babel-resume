@@ -5,6 +5,8 @@ projects:
     category: "systems"
     repo: "TheBabelDragon/field-os"
     tests_url: "https://github.com/TheBabelDragon/field-os/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/field-os/tree/main/examples"
+    docs_url: "https://github.com/TheBabelDragon/field-os/tree/main/docs"
     headline: "A substrate-level contract for computational fields."
     description: >
       A deterministic field substrate where observation, delta admission,
@@ -34,6 +36,9 @@ projects:
     status: active
     category: "simulation"
     repo: "TheBabelDragon/metafield-engine"
+    tests_url: "https://github.com/TheBabelDragon/metafield-engine/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/metafield-engine/tree/main/examples"
+    docs_url: "https://github.com/TheBabelDragon/metafield-engine/tree/main/docs"
     headline: "Field -> World -> Tick. Cross-domain universe substrate."
     description: >
       Canonical World state, ECS, multi-physics fields, hardware abstraction
@@ -61,6 +66,9 @@ projects:
     status: experimental
     category: "hardware"
     repo: "TheBabelDragon/c3-field-swarm"
+    tests_url: "https://github.com/TheBabelDragon/c3-field-swarm/tree/main/test"
+    examples_url: "https://github.com/TheBabelDragon/c3-field-swarm/tree/main/bylight_phy"
+    docs_url: "https://github.com/TheBabelDragon/c3-field-swarm/tree/main/docs"
     headline: "Communication through light."
     description: >
       Analog optical physical layer inside the ESP32-C3 swarm substrate.
@@ -87,6 +95,9 @@ projects:
     status: active
     category: "AI infrastructure"
     repo: "TheBabelDragon/throne-room"
+    tests_url: "https://github.com/TheBabelDragon/throne-room/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/throne-room/tree/main/qwuack"
+    docs_url: "https://github.com/TheBabelDragon/throne-room/tree/main/docs"
     headline: "An AI interaction / control layer."
     description: >
       Operational Field Observer plus agent-in-a-world loop. Live CSI/Aurora
@@ -114,8 +125,9 @@ projects:
     status: active
     category: "visual computing"
     repo: "TheBabelDragon/canonsphere"
-    live: "https://github.com/TheBabelDragon/canonsphere/tree/main/pages"
+    live: "https://thebabeldragon.github.io/canonsphere/"
     tests_url: "https://github.com/TheBabelDragon/canonsphere/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/canonsphere/tree/main/pages"
     headline: "Computational stereography."
     description: >
       Field state -> canonical bytes -> state hash -> deterministic sigil ->
@@ -142,6 +154,8 @@ projects:
     category: "AI infrastructure"
     repo: "TheBabelDragon/babel-interface"
     tests_url: "https://github.com/TheBabelDragon/babel-interface/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/babel-interface/tree/main/pages"
+    docs_url: "https://github.com/TheBabelDragon/babel-interface/tree/main/contract"
     headline: "Self-describing, AI-addressable contract."
     description: >
       Metadata describes reality; it is not a second implementation.
@@ -171,6 +185,8 @@ projects:
     category: "portfolio"
     repo: "TheBabelDragon/babel-resume"
     live: "https://thebabeldragon.github.io/babel-resume/"
+    tests_url: "https://github.com/TheBabelDragon/babel-resume/blob/main/scripts/validate.py"
+    examples_url: "https://github.com/TheBabelDragon/babel-resume/tree/main/content"
     headline: "YAML is the source of truth."
     description: >
       This site. A GitHub-native engineering portfolio. Repositories are the
@@ -192,6 +208,8 @@ projects:
     status: active
     category: "control"
     repo: "TheBabelDragon/pidder-padder"
+    tests_url: "https://github.com/TheBabelDragon/pidder-padder/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/pidder-padder/tree/main/examples"
     headline: "Target + measurement -> bounded correction."
     description: >
       Portable closed-loop control layer. Duck Gate admits; Field OS observes;
@@ -206,6 +224,8 @@ projects:
     status: active
     category: "hardware"
     repo: "TheBabelDragon/c3-field-swarm"
+    tests_url: "https://github.com/TheBabelDragon/c3-field-swarm/tree/main/test"
+    docs_url: "https://github.com/TheBabelDragon/c3-field-swarm/tree/main/docs"
     headline: "Deterministic ESP32-C3 wireless swarm substrate."
     description: >
       Edge nodes that speak FieldView and FieldDelta. The physical counterpart
@@ -235,6 +255,8 @@ projects:
     status: experimental
     category: "hardware"
     repo: "TheBabelDragon/echo-grid-ultrasonic-os"
+    docs_url: "https://github.com/TheBabelDragon/echo-grid-ultrasonic-os/tree/main/docs"
+    examples_url: "https://github.com/TheBabelDragon/echo-grid-ultrasonic-os/tree/main/visualization"
     headline: "Coupled field wavefield computer."
     description: >
       Real-time phased ultrasonic array controller. Field kernel +
@@ -263,6 +285,7 @@ projects:
     status: experimental
     category: "hardware"
     repo: "TheBabelDragon/sprayplot"
+    examples_url: "https://github.com/TheBabelDragon/sprayplot/tree/main/sprayplot_firmware"
     headline: "Laser beacon tracker."
     description: >
       ESP32 base-station + robot-receiver firmware. Boundary map, dither-lock, ESP-NOW.
@@ -307,6 +330,7 @@ projects:
     category: "signal"
     repo: "TheBabelDragon/signal-processor"
     live: "https://thebabeldragon.github.io/signal-processor/"
+    examples_url: "https://github.com/TheBabelDragon/signal-processor/tree/main/recipes"
     headline: "Binaural / isochronic / modulation processor."
     description: >
       Single-file-family browser app. Live preview and WAV export.
@@ -323,6 +347,7 @@ projects:
     category: "visual computing"
     repo: "TheBabelDragon/neuro-swarm"
     live: "https://thebabeldragon.github.io/neuro-swarm/"
+    examples_url: "https://github.com/TheBabelDragon/neuro-swarm/tree/main/js"
     headline: "Player vs evolving AI murmuration."
     description: >
       Browser neuroevolution drone swarm. Adaptive drones that learn.
@@ -416,6 +441,20 @@ projects:
     featured: false
     status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
 
+  - id: metafield-work
+    name: "MetaField workbench"
+    status: experimental
+    category: "systems"
+    repo: "TheBabelDragon/metafield-work"
+    headline: "Operator isolation bench."
+    description: >
+      Local workbench twin of the operator ABI. Mathematics defines the operators; backends implement them.
+    technologies: [Python, operator ABI]
+    demonstrates: [Workbench, Contract discipline]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
   - id: aurora-btc
     name: "Aurora swarm BTC"
     status: experimental
@@ -426,6 +465,36 @@ projects:
       Production entropy-driven Bitcoin mining swarm. They yearn for the mines.
     technologies: [Python]
     demonstrates: [Swarm coordination]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: saassaas
+    name: "SaaSSaaS"
+    status: experimental
+    category: "systems"
+    repo: "TheBabelDragon/SaaSSaaS"
+    examples_url: "https://github.com/TheBabelDragon/SaaSSaaS/tree/main/examples"
+    headline: "SaaS orchestration for SaaS orchestration."
+    description: >
+      Everything is a service. ENTER-PRIZE v0.1. Nested planes of orchestration in Rust.
+    technologies: [Rust, YAML]
+    demonstrates: [Orchestration satire that still compiles]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: nefratz
+    name: "Nefratz sandbox"
+    status: experimental
+    category: "visual computing"
+    repo: "TheBabelDragon/nefratz-sandbox"
+    examples_url: "https://github.com/TheBabelDragon/nefratz-sandbox/blob/main/nefratz_sandbox_v15.py"
+    headline: "Pythonista generative art organism."
+    description: >
+      NEFRATZ SANDBOX v15. Early surface work before the field stack hardened.
+    technologies: [Python, Pythonista]
+    demonstrates: [Generative art]
     featured: false
     lab: true
     status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
