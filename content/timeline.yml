@@ -2,15 +2,36 @@ timeline:
   - date: 2026-05
     project: echo-grid
     event: "Echo Grid ultrasonic OS — wavefield kernel + array control"
+  - date: 2026-05
+    project: aurora-btc
+    event: "Aurora entropy mining swarm published"
+  - date: 2026-06
+    project: wifi-sensing
+    event: "WiFi CSI spatial intelligence OS"
   - date: 2026-07
     project: field-bus
     event: "Shared CAN / CAN-FD language for physical field nodes"
+  - date: 2026-07
+    project: metafield-qcd
+    event: "MetaField v2 lattice QCD / Wilson–Dirac workbench"
+  - date: 2026-07
+    project: babelbus
+    event: "BabelBus ESP32-P4 video-only display bus"
+  - date: 2026-07
+    project: optical-body
+    event: "Optical Body S3 — laser + BPW34 FieldObservation node"
   - date: 2026-08
     project: metafield
     event: "MetaField engine — world kernel, fields as plugins"
   - date: 2026-08
     project: quack
     event: "Throne Room — operator ABI, chat as actuator"
+  - date: 2026-08
+    project: signal-processor
+    event: "Browser signal processor with live preview"
+  - date: 2026-08
+    project: eeg-loop
+    event: "EEG closed-loop acquisition platform"
   - date: 2026-09
     project: field-os
     event: "Admitted-field contract implemented"
@@ -24,5 +45,14 @@ timeline:
     project: canonsphere
     event: "Field state → deterministic stereographic glyph"
   - date: 2026-09
+    project: neuro-swarm
+    event: "Neuroevolution drone swarm on GitHub Pages"
+  - date: 2026-09
     project: pidder-padder
     event: "Closed-loop layer: admit → observe → converge"
+  - date: 2026-09
+    project: sprayplot
+    event: "Sprayplot laser beacon tracker firmware"
+  - date: 2026-09
+    project: babel-resume
+    event: "YAML resume / portfolio becomes a repository"
