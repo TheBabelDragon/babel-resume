@@ -1,7 +1,8 @@
 lab:
   intro: >
     Not everything here is a finished product. Every card still goes
-    somewhere — a dossier, a repository, or a running page.
+    somewhere — a dossier, a repository, a tests tree, an examples tree,
+    or a running page.
   items:
     - id: optical-body
       name: "Optical Body S3"
@@ -75,3 +76,21 @@ lab:
       blurb: >
         Wheels + encoders + mapped optical reference grid. The nearest
         living relative is Sprayplot — open that dossier.
+    - id: saassaas
+      name: "SaaSSaaS"
+      status: experimental
+      project: saassaas
+      blurb: >
+        Nested orchestration until the joke compiles. Examples live in-tree.
+    - id: nefratz
+      name: "Nefratz"
+      status: experimental
+      project: nefratz
+      blurb: >
+        Pythonista generative-art organism. Early surface before the field stack.
+    - id: metafield-work
+      name: "Operator workbench"
+      status: experimental
+      project: metafield-work
+      blurb: >
+        Local twin of the frozen Wilson–Dirac ABI. Backends swap; math does not.

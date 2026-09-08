@@ -4,9 +4,10 @@ resume:
   location: "Independent / lab"
   summary: >
     Computer engineering student and independent systems builder.
-    The work is one ecosystem, not a stack of disconnected side projects:
-    fields, bodies, buses, observers, and agents. GitHub is the identity.
-    This page is compiled from the same YAML as the rest of the site.
+    One ecosystem rather than a pile of side projects: a field substrate,
+    physical bodies that emit the same deltas as the simulator, a bus,
+    an observer, and an agent surface that is not allowed to become the kernel.
+    GitHub is the identity. This page is compiled from content/resume.yml.
     There is no Open-to-Work rectangle. There is source.
   links:
     - label: GitHub
@@ -18,44 +19,89 @@ resume:
     - label: Field OS
       href: https://github.com/TheBabelDragon/field-os
       external: true
+    - label: MetaField Engine
+      href: https://github.com/TheBabelDragon/metafield-engine
+      external: true
+    - label: QUACK / Throne Room
+      href: https://github.com/TheBabelDragon/throne-room
+      external: true
+    - label: Live signal processor
+      href: https://thebabeldragon.github.io/signal-processor/
+      external: true
+    - label: Live neuro-swarm
+      href: https://thebabeldragon.github.io/neuro-swarm/
+      external: true
+    - label: Live Canonsphere
+      href: https://thebabeldragon.github.io/canonsphere/
+      external: true
     - label: Systems map
       href: /systems/
     - label: Timeline
       href: /timeline/
+    - label: Lab
+      href: /lab/
     - label: Print / PDF
       action: print
   experience:
-    - period: 2026
+    - period: "2026"
       title: Field operating system
       org: field-os
       href: /projects/field-os/
       body: >
         Admitted-field contract between MetaField Engine and the C3 swarm.
         Observation → validation → FieldDelta → FieldTick → replay.
-        The engine is not allowed to know what a thing is.
-    - period: 2026
+        The engine is not allowed to know what a thing is. Six-node room
+        example and a locked schema live in the repository.
+    - period: "2026"
+      title: Cross-domain field engine
+      org: metafield-engine
+      href: /projects/metafield/
+      body: >
+        Canonical World state, ECS, multi-physics fields, hardware
+        abstraction and Aurora fabric. Optical-body, echo-grid and Aurora
+        work become plugins. Hello-world / hello-field / swarm-world
+        examples ship in-tree.
+    - period: "2026"
       title: Operator / agent surface
       org: QUACK · throne-room · babel-interface
       href: /projects/quack/
       body: >
-        Chat as actuator, not kernel. .babel manifests so an agent can
-        walk a capability graph instead of scraping READMEs. Models propose.
-        Contracts admit.
-    - period: 2026
+        Chat as actuator, not kernel. Duck Gate admits. .babel manifests
+        so an agent can walk a capability graph instead of scraping READMEs.
+        Models propose. Contracts admit.
+    - period: "2026"
       title: Physical field bodies
-      org: c3-field-swarm · optical-body-s3 · field-bus · echo-grid
+      org: c3-field-swarm · optical-body-s3 · field-bus · echo-grid · sprayplot
       href: /lab/
       body: >
-        ESP32-C3 swarm, optical PHY isolate, CAN-FD field bus, ultrasonic
-        array, laser beacon tracker. Hardware that emits the same FieldDelta
-        object the simulator emits.
-    - period: 2025–2026
+        ESP32-C3 swarm with an optical PHY isolate, CAN-FD field bus,
+        ultrasonic array + FPGA path, laser beacon tracker, Hall-array
+        stub, Arty A7 realtime boundary. Hardware that emits the same
+        FieldDelta object the simulator emits.
+    - period: "2026"
+      title: Visible state and browser instruments
+      org: canonsphere · signal-processor · neuro-swarm
+      href: /projects/canonsphere/
+      body: >
+        Deterministic stereographic glyphs from hashed field state.
+        A live binaural / isochronic processor. A neuroevolution drone
+        murmuration on GitHub Pages. Surfaces that can be opened, not
+        screenshots of surfaces.
+    - period: "2025–2026"
       title: Independent lab
       org: TheBabelDragon
       href: https://github.com/TheBabelDragon
       body: >
-        Built the constellation in public. No employer section. The repos
-        are the employment history.
+        Built the constellation in public. No employer section.
+        The repositories are the employment history.
+  education:
+    - period: "ongoing"
+      title: Computer engineering
+      org: Independent study + working hardware
+      body: >
+        Curriculum is the stack: C / C++ on ESP32 and host, Python field
+        kernels, Verilog on the ultrasonic path, contracts in YAML and
+        JSON Schema. Competence is a passing suite or a wired board.
   capabilities:
     systems:
       - deterministic simulation
@@ -93,7 +139,10 @@ resume:
     - canonsphere
     - babel-resume
     - signal-processor
+    - neuro-swarm
+    - pidder-padder
   notes:
     - "This is the resume. The repositories are the citations."
     - "No skill percentages. Competence is a passing test suite or a wired board."
     - "If you need a PDF, print this page. It is generated from content/resume.yml."
+    - "Live demos that actually resolve today: Canonsphere, signal-processor, neuro-swarm."

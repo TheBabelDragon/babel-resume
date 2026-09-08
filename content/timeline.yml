@@ -1,5 +1,8 @@
 timeline:
   - date: 2026-05
+    project: nefratz
+    event: "Nefratz sandbox v15 — Pythonista generative-art organism"
+  - date: 2026-05
     project: echo-grid
     event: "Echo Grid ultrasonic OS — wavefield kernel + array control"
   - date: 2026-05
@@ -27,11 +30,20 @@ timeline:
     project: quack
     event: "Throne Room — operator ABI, chat as actuator"
   - date: 2026-08
+    project: metafield-abi
+    event: "Wilson–Dirac v1 frozen as operator ABI"
+  - date: 2026-08
+    project: metafield-work
+    event: "Operator isolation workbench split from the frozen ABI"
+  - date: 2026-08
     project: signal-processor
     event: "Browser signal processor with live preview"
   - date: 2026-08
     project: eeg-loop
     event: "EEG closed-loop acquisition platform"
+  - date: 2026-08
+    project: saassaas
+    event: "SaaSSaaS ENTER-PRIZE™ v0.1 — nested orchestration in Rust"
   - date: 2026-09
     project: field-os
     event: "Admitted-field contract implemented"

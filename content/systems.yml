@@ -23,6 +23,10 @@ nodes:
     label: METAFIELD
     kind: project
     project: metafield
+  - id: pidder-padder
+    label: PIDDER
+    kind: project
+    project: pidder-padder
   - id: bylight-phy
     label: BYLIGHT PHY
     kind: project
@@ -35,6 +39,10 @@ nodes:
     label: C3 SWARM
     kind: project
     project: c3-field-swarm
+  - id: field-bus
+    label: FIELD BUS
+    kind: project
+    project: field-bus
   - id: hardware
     label: HARDWARE
     kind: abstract
@@ -70,6 +78,9 @@ edges:
   - from: field-os
     to: c3-field-swarm
     relationship: contract
+  - from: pidder-padder
+    to: field-os
+    relationship: converges
   - from: bylight-phy
     to: c3-field-swarm
     relationship: communication
@@ -82,6 +93,9 @@ edges:
   - from: c3-field-swarm
     to: hardware
     relationship: embodies
+  - from: field-bus
+    to: hardware
+    relationship: interconnects
   - from: hardware
     to: physical-world
     relationship: couples
@@ -92,7 +106,7 @@ edges:
 layout:
   - [ai]
   - [quack, babel-interface]
-  - [field-os, github]
+  - [field-os, github, pidder-padder]
   - [metafield, bylight-phy, canonsphere]
-  - [c3-field-swarm, hardware, visual-computing]
+  - [c3-field-swarm, field-bus, hardware, visual-computing]
   - [physical-world]
