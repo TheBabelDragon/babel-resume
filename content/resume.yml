@@ -1,38 +1,89 @@
 resume:
   name: "The Babel Dragon"
-  role: "Computational systems / hardware / software"
+  role: "Computational systems · hardware · software"
+  location: "Independent / lab"
   summary: >
-    Independent systems builder working across embedded hardware,
-    computational simulation, distributed infrastructure and visual
-    computing. The work is a single ecosystem: fields, bodies, buses,
-    observers and agents — not a list of disconnected side projects.
+    Computer engineering student and independent systems builder.
+    The work is one ecosystem, not a stack of disconnected side projects:
+    fields, bodies, buses, observers, and agents. GitHub is the identity.
+    This page is compiled from the same YAML as the rest of the site.
+    There is no Open-to-Work rectangle. There is source.
+  links:
+    - label: GitHub
+      href: https://github.com/TheBabelDragon
+      external: true
+    - label: All repositories
+      href: https://github.com/TheBabelDragon?tab=repositories
+      external: true
+    - label: Field OS
+      href: https://github.com/TheBabelDragon/field-os
+      external: true
+    - label: Systems map
+      href: /systems/
+    - label: Timeline
+      href: /timeline/
+    - label: Print / PDF
+      action: print
+  experience:
+    - period: 2026
+      title: Field operating system
+      org: field-os
+      href: /projects/field-os/
+      body: >
+        Admitted-field contract between MetaField Engine and the C3 swarm.
+        Observation → validation → FieldDelta → FieldTick → replay.
+        The engine is not allowed to know what a thing is.
+    - period: 2026
+      title: Operator / agent surface
+      org: QUACK · throne-room · babel-interface
+      href: /projects/quack/
+      body: >
+        Chat as actuator, not kernel. .babel manifests so an agent can
+        walk a capability graph instead of scraping READMEs. Models propose.
+        Contracts admit.
+    - period: 2026
+      title: Physical field bodies
+      org: c3-field-swarm · optical-body-s3 · field-bus · echo-grid
+      href: /lab/
+      body: >
+        ESP32-C3 swarm, optical PHY isolate, CAN-FD field bus, ultrasonic
+        array, laser beacon tracker. Hardware that emits the same FieldDelta
+        object the simulator emits.
+    - period: 2025–2026
+      title: Independent lab
+      org: TheBabelDragon
+      href: https://github.com/TheBabelDragon
+      body: >
+        Built the constellation in public. No employer section. The repos
+        are the employment history.
   capabilities:
     systems:
       - deterministic simulation
-      - distributed systems
-      - protocol design
-      - state machines
       - admitted contracts
       - provenance / replay
+      - protocol design
+      - state machines
+      - distributed observers
     hardware:
-      - ESP32 / ESP32-C3 / ESP32-S3
+      - ESP32 / C3 / S3 / P4
       - optical communication
-      - sensors and field bodies
       - CAN / CAN-FD
       - ultrasonics
+      - photodiode / laser bodies
       - closed-loop control
     software:
       - C / C++
-      - Rust
       - Python
+      - Rust
       - JavaScript
-      - GitHub Actions
       - YAML contracts
+      - GitHub Actions
     domains:
       - physical computing
       - computational fields
       - AI infrastructure
       - computer graphics
+      - RF / CSI sensing
   selected:
     - field-os
     - metafield
@@ -40,7 +91,9 @@ resume:
     - quack
     - babel-interface
     - canonsphere
+    - babel-resume
+    - signal-processor
   notes:
-    - "GitHub is the professional identity."
-    - "This page is generated from the same YAML as the rest of the site."
-    - "No skill bars. No endorsement graph. No Open-to-Work rectangle."
+    - "This is the resume. The repositories are the citations."
+    - "No skill percentages. Competence is a passing test suite or a wired board."
+    - "If you need a PDF, print this page. It is generated from content/resume.yml."
