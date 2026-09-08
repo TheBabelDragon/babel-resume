@@ -1,0 +1,28 @@
+timeline:
+  - date: 2026-05
+    project: echo-grid
+    event: "Echo Grid ultrasonic OS — wavefield kernel + array control"
+  - date: 2026-07
+    project: field-bus
+    event: "Shared CAN / CAN-FD language for physical field nodes"
+  - date: 2026-08
+    project: metafield
+    event: "MetaField engine — world kernel, fields as plugins"
+  - date: 2026-08
+    project: quack
+    event: "Throne Room — operator ABI, chat as actuator"
+  - date: 2026-09
+    project: field-os
+    event: "Admitted-field contract implemented"
+  - date: 2026-09
+    project: babel-interface
+    event: "AI-addressable .babel contract and capability graph"
+  - date: 2026-09
+    project: bylight-phy
+    event: "Optical PHY declared isolate inside C3 swarm"
+  - date: 2026-09
+    project: canonsphere
+    event: "Field state → deterministic stereographic glyph"
+  - date: 2026-09
+    project: pidder-padder
+    event: "Closed-loop layer: admit → observe → converge"

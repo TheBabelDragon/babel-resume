@@ -1,0 +1,46 @@
+resume:
+  name: "The Babel Dragon"
+  role: "Computational systems / hardware / software"
+  summary: >
+    Independent systems builder working across embedded hardware,
+    computational simulation, distributed infrastructure and visual
+    computing. The work is a single ecosystem: fields, bodies, buses,
+    observers and agents — not a list of disconnected side projects.
+  capabilities:
+    systems:
+      - deterministic simulation
+      - distributed systems
+      - protocol design
+      - state machines
+      - admitted contracts
+      - provenance / replay
+    hardware:
+      - ESP32 / ESP32-C3 / ESP32-S3
+      - optical communication
+      - sensors and field bodies
+      - CAN / CAN-FD
+      - ultrasonics
+      - closed-loop control
+    software:
+      - C / C++
+      - Rust
+      - Python
+      - JavaScript
+      - GitHub Actions
+      - YAML contracts
+    domains:
+      - physical computing
+      - computational fields
+      - AI infrastructure
+      - computer graphics
+  selected:
+    - field-os
+    - metafield
+    - bylight-phy
+    - quack
+    - babel-interface
+    - canonsphere
+  notes:
+    - "GitHub is the professional identity."
+    - "This page is generated from the same YAML as the rest of the site."
+    - "No skill bars. No endorsement graph. No Open-to-Work rectangle."

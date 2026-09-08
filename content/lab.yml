@@ -1,0 +1,46 @@
+lab:
+  intro: >
+    Not everything here is a finished product. The lab is where
+    experiments live without being forced into a case study.
+  items:
+    - id: optical-body
+      name: "Optical Body S3"
+      status: prototype
+      project: optical-body
+      blurb: >
+        Laser excitation + BPW34 measurement body. Emits
+        FieldObservation packets. Does not run MetaField; it is
+        the physical body.
+    - id: echo-grid
+      name: "Echo Grid"
+      status: prototype
+      project: echo-grid
+      blurb: >
+        Coupled field wavefield computer. FPGA Verilog + ESP32
+        swarm + phased ultrasonic array.
+    - id: sprayplot
+      name: "Sprayplot"
+      status: prototype
+      project: sprayplot
+      blurb: >
+        Laser beacon tracker. Base-station + robot-receiver,
+        boundary map, dither-lock.
+    - id: wifi-sensing
+      name: "WiFi CSI field"
+      status: experimental
+      project: wifi-sensing
+      blurb: >
+        Spatial intelligence from channel state. Sensing without
+        cameras as the first instrument.
+    - id: self-state-kernel
+      name: "SELF-State Kernel"
+      status: experimental
+      project: self-state-kernel
+      blurb: >
+        Fail-closed control, hashable state, provenance via trace.
+    - id: laser-grid
+      name: "Laser Grid"
+      status: concept
+      blurb: >
+        Wheels + encoders + mapped optical reference grid for
+        physical image generation. Not a repository yet.

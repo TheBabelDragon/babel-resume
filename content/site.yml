@@ -1,0 +1,38 @@
+site:
+  name: "The Babel Dragon"
+  short: "BABEL DRAGON"
+  title: "Computational Systems"
+  disciplines: "Hardware · Software · Physical Computing"
+  tagline: "I build systems where software becomes physical."
+  description: >
+    Experimental engineering across physical computing,
+    distributed systems, computational fields, optics and AI.
+  github_user: "TheBabelDragon"
+  github_org_url: "https://github.com/TheBabelDragon"
+  repo: "TheBabelDragon/babel-resume"
+  base_path: "/babel-resume"
+  lab_label: "ENGINEERING / LAB"
+
+navigation:
+  - id: projects
+    label: Projects
+    href: /projects/
+  - id: systems
+    label: Systems
+    href: /systems/
+  - id: lab
+    label: Lab
+    href: /lab/
+  - id: principle
+    label: Principle
+    href: /principle/
+  - id: github
+    label: GitHub
+    href: https://github.com/TheBabelDragon
+    external: true
+  - id: resume
+    label: Resume
+    href: /resume/
+
+footer:
+  line: "YAML is the source of truth. Repositories are the evidence."
