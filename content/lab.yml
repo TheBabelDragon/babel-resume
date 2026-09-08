@@ -1,37 +1,67 @@
 lab:
   intro: >
-    Not everything here is a finished product. The lab is where
-    experiments live without being forced into a case study.
+    Not everything here is a finished product. Every card still goes
+    somewhere — a dossier, a repository, or a running page.
   items:
     - id: optical-body
       name: "Optical Body S3"
       status: prototype
       project: optical-body
       blurb: >
-        Laser excitation + BPW34 measurement body. Emits
-        FieldObservation packets. Does not run MetaField; it is
-        the physical body.
+        Laser excitation + BPW34 measurement body. Emits FieldObservation
+        packets. Does not run MetaField; it is the physical body.
     - id: echo-grid
       name: "Echo Grid"
       status: prototype
       project: echo-grid
       blurb: >
-        Coupled field wavefield computer. FPGA Verilog + ESP32
-        swarm + phased ultrasonic array.
+        Coupled field wavefield computer. FPGA Verilog + ESP32 swarm +
+        phased ultrasonic array.
     - id: sprayplot
       name: "Sprayplot"
       status: prototype
       project: sprayplot
       blurb: >
-        Laser beacon tracker. Base-station + robot-receiver,
-        boundary map, dither-lock.
+        Laser beacon tracker. Base-station + robot-receiver, boundary map,
+        dither-lock.
     - id: wifi-sensing
       name: "WiFi CSI field"
       status: experimental
       project: wifi-sensing
       blurb: >
-        Spatial intelligence from channel state. Sensing without
-        cameras as the first instrument.
+        Spatial intelligence from channel state. Sensing without cameras
+        as the first instrument.
+    - id: eeg-loop
+      name: "EEG loop"
+      status: experimental
+      project: eeg-loop
+      blurb: >
+        Acquisition, analysis, inference, closed-loop control. The skull
+        as another field body.
+    - id: hall-node
+      name: "Hall node S3"
+      status: prototype
+      project: hall-node
+      blurb: >
+        10× Hall array → Field Bus (CAN-FD). Stub until the sensors are wired.
+    - id: babelbus
+      name: "BabelBus"
+      status: experimental
+      project: babelbus
+      blurb: >
+        ESP32-P4 HDMI-to-CSI video-only IP display bus. No HID. Safer viewer.
+    - id: neuro-swarm
+      name: "Neuro swarm"
+      status: experimental
+      project: neuro-swarm
+      blurb: >
+        Browser neuroevolution drone murmuration. The running page is the demo.
+    - id: signal-processor
+      name: "Signal processor"
+      status: active
+      project: signal-processor
+      blurb: >
+        Binaural / isochronic / modulation processor. Live preview and WAV export.
     - id: self-state-kernel
       name: "SELF-State Kernel"
       status: experimental
@@ -41,6 +71,7 @@ lab:
     - id: laser-grid
       name: "Laser Grid"
       status: concept
+      project: sprayplot
       blurb: >
-        Wheels + encoders + mapped optical reference grid for
-        physical image generation. Not a repository yet.
+        Wheels + encoders + mapped optical reference grid. The nearest
+        living relative is Sprayplot — open that dossier.
