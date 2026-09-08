@@ -1,0 +1,69 @@
+principle:
+  title: "All-AI build design"
+  kicker: "How the work is actually built"
+  statement: >
+    The portfolio is not a wrapper around the work. The same principle
+    that builds Field OS and babel-interface builds this site:
+    a machine-readable contract first, a human surface second,
+    agents as operators not authors of hidden state.
+  axioms:
+    - id: yaml-source
+      title: "YAML is the source of truth"
+      body: >
+        Content is data. The renderer has no opinions that the YAML
+        does not already contain. Edit a file, push, the site updates.
+    - id: repos-evidence
+      title: "Repositories are the evidence"
+      body: >
+        Stars and commit graphs are supporting telemetry. The claim
+        is what the system does. GitHub is queried at build time.
+    - id: metadata-is-reality
+      title: "Metadata describes reality"
+      body: >
+        babel-interface: an agent loads .babel/ecosystem.yml, walks
+        the capability graph, reads a schema, constructs valid input
+        and invokes the next compatible repository.
+    - id: admit-dont-prompt
+      title: "Admit, don't prompt"
+      body: >
+        Models propose. Contracts admit. Duck Gate / Field OS /
+        operator ABI sit between an agent and mutable world state.
+        Chat is an actuator, not a kernel.
+    - id: isolates
+      title: "Keep analog isolates analog"
+      body: >
+        bylight_phy stays an island. The kernel does not hide a
+        failed optical link behind LINK_UP.
+    - id: forkable
+      title: "The site is itself a project"
+      body: >
+        Fork. Replace site.name. Replace projects.yml. Enable Pages.
+  loop: |
+    intent
+      |
+    YAML / .babel contract
+      |
+    agent or human edit
+      |
+    validate
+      |
+    admitted commit
+      |
+    GitHub Actions
+      |
+    static surface
+      |
+    observation / telemetry
+      |
+    next delta
+  stack:
+    - layer: "Contract"
+      items: [".babel/manifest.yml", "content/*.yml", "JSON Schema"]
+    - layer: "Operator"
+      items: ["QUACK / throne-room", "babel CLI", "GitHub PRs"]
+    - layer: "Substrate"
+      items: ["Field OS", "MetaField Engine", "C3 swarm"]
+    - layer: "Body"
+      items: ["optical-body", "bylight PHY", "field-bus", "echo-grid"]
+    - layer: "Surface"
+      items: ["babel-resume", "Canonsphere", "HUDs"]
