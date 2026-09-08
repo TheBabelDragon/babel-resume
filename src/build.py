@@ -53,6 +53,21 @@ def href(site, p):
 def project_href(site, pid):
     return href(site, "/projects/" + pid + "/")
 
+def node_url(site, n):
+    if n.get("kind") == "project" and n.get("project"):
+        return project_href(site, n["project"])
+    raw = n.get("href") or ""
+    return href(site, raw) if raw else ""
+
+def btn(label, url, solid=False, external=False, action=""):
+    klass = "btn solid" if solid else "btn"
+    if action == "print":
+        return '<button class="' + klass + '" type="button" onclick="window.print()">' + esc(label) + '</button>'
+    if not url:
+        return ""
+    rel = ' target="_blank" rel="noopener"' if external or str(url).startswith("http") else ""
+    return '<a class="' + klass + '" href="' + esc(url) + '"' + rel + '>' + esc(label) + '</a>'
+
 def status_dot(status):
     s = (status or "unknown").lower()
     return '<span><span class="dot ' + esc(s) + '"></span>' + esc(s) + '</span>'
@@ -91,6 +106,12 @@ def layout(data, title, path, body):
         cur = ' aria-current="page"' if (not item.get("external") and path == item["href"]) else ""
         rel = ' target="_blank" rel="noopener"' if item.get("external") else ""
         items.append('<li><a href="' + esc(url) + '"' + cur + rel + '>' + esc(item["label"]) + '</a></li>')
+    foot_links = (
+        '<a href="' + esc(href(site, "/resume/")) + '">resume</a> · '
+        + '<a href="' + esc(href(site, "/timeline/")) + '">timeline</a> · '
+        + '<a href="' + esc(href(site, "/tech/")) + '">index</a> · '
+        + '<a href="' + esc(site.get("github_org_url") or "#") + '">' + esc(site.get("github_user") or "") + '</a>'
+    )
     return (
         '<!doctype html><html lang="en"><head>'
         + '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -105,7 +126,7 @@ def layout(data, title, path, body):
         + '<nav><ul>' + ''.join(items) + '</ul></nav></div></header>'
         + '<main><div class="wrap">' + body + '</div></main>'
         + '<footer class="site-footer"><div class="wrap row"><div>' + esc(foot.get("line") or "") + '</div>'
-        + '<div><a href="' + esc(site.get("github_org_url") or "#") + '">' + esc(site.get("github_user") or "") + '</a></div></div></footer>'
+        + '<div>' + foot_links + '</div></div></footer>'
         + '</body></html>'
     )
 
@@ -147,7 +168,7 @@ def svg_map(site, systems):
         parts.append('<text class="rel" text-anchor="middle" x="%s" y="%s">%s</text>' % ((x1 + x2) / 2, mid - 4, esc(e.get("relationship") or "")))
     for nid, (x, y) in pos.items():
         n = by_id.get(nid) or {"id": nid, "label": nid}
-        url = project_href(site, n["project"]) if n.get("kind") == "project" and n.get("project") else (n.get("href") or "")
+        url = node_url(site, n)
         klass = "abs" if n.get("kind") == "abstract" else ""
         inner = '<rect class="node-box %s" x="%s" y="%s" width="%s" height="%s" rx="2"/><text text-anchor="middle" x="%s" y="%s">%s</text>' % (klass, x, y, bw, bh, x + bw / 2, y + 22, esc(n.get("label") or nid))
         parts.append(('<a href="' + esc(url) + '">' + inner + '</a>') if url else inner)
@@ -158,8 +179,7 @@ def render_home(data):
     btns = []
     for item in data["navigation"]:
         url = item["href"] if item.get("external") else href(data["site"], item["href"])
-        rel = ' target="_blank" rel="noopener"' if item.get("external") else ""
-        btns.append('<a class="btn" href="' + esc(url) + '"' + rel + '>' + esc(item["label"]) + '</a>')
+        btns.append(btn(item["label"], url, external=bool(item.get("external"))))
     site = data["site"]
     body = (
         '<section class="hero"><p class="kicker">' + esc(site["title"]) + '</p>'
@@ -198,8 +218,13 @@ def render_project(data, p):
     approach = ('<p class="rule">The approach</p><div class="preblock">' + esc(p["approach"]) + '</div>') if p.get("approach") else ""
     arch = ('<p class="rule">Architecture</p><div class="preblock">' + esc(p["architecture"]) + '</div>') if p.get("architecture") else ""
     repo_cell = ('<a href="' + esc(repo_url) + '" target="_blank" rel="noopener">' + esc(p["repo"]) + '</a>') if repo_url else "-"
-    src = ('<a class="btn solid" href="' + esc(repo_url) + '" target="_blank" rel="noopener">View source</a>') if repo_url else ""
     impl = p.get("implementation") or " / ".join(p.get("technologies") or [])
+    actions = (
+        btn("View source", repo_url, solid=True, external=True)
+        + btn("Open live", p.get("live"), external=True)
+        + btn("View tests", p.get("tests_url"), external=True)
+        + btn("All projects", href(data["site"], "/projects/"))
+    )
     body = (
         '<section class="dossier-head"><p class="kicker">' + esc(p.get("category") or "project") + '</p>'
         + '<h1>' + esc(p["name"]) + '</h1><dl class="kv">'
@@ -212,8 +237,7 @@ def render_project(data, p):
         + (('<p class="rule">What it proves</p><ul class="checks">' + proves + '</ul>') if proves else '')
         + '<p class="rule">Implementation</p><p class="headline">' + esc(impl) + '</p>'
         + (('<ul class="tech-list" style="margin-top:12px">' + techs + '</ul>') if techs else '')
-        + '<div class="cta-row" style="margin:28px 0 48px">' + src
-        + '<a class="btn" href="' + esc(href(data["site"], "/projects/")) + '">All projects</a></div>'
+        + '<div class="cta-row" style="margin:28px 0 48px">' + actions + '</div>'
     )
     return page(data, "/projects/" + p["id"] + "/", p["name"], body)
 
@@ -226,7 +250,7 @@ def render_systems(data):
         rows.append("<tr><td>" + esc(fr.get("label") or e["from"]) + "</td><td class='mono'>" + esc(e.get("relationship")) + "</td><td>" + esc(to.get("label") or e["to"]) + "</td></tr>")
     body = (
         '<section class="hero"><p class="kicker">Relationships</p><h1>System map</h1>'
-        + '<p class="tagline">Not a project list. An engineering ecosystem.</p></section>'
+        + '<p class="tagline">Not a project list. An engineering ecosystem. Every node is a link.</p></section>'
         + '<section class="block">' + svg_map(data["site"], data["systems"]) + '</section>'
         + '<section class="block"><p class="section-label">Admitted edges</p>'
         + '<table class="stack-table"><thead><tr><th>From</th><th>Rel</th><th>To</th></tr></thead><tbody>'
@@ -250,18 +274,34 @@ def render_lab(data):
     return page(data, "/lab/", "Lab", body)
 
 def render_resume(data):
-    cap = data["resume"].get("capabilities") or {}
-    cap_rows = "".join("<tr><th>" + esc(k) + "</th><td>" + " | ".join(esc(v) for v in (vals or [])) + "</td></tr>" for k, vals in cap.items())
-    selected = "".join(project_card(data["site"], data["by_id"][i]) for i in data["resume"].get("selected") or [] if i in data["by_id"])
-    notes = "".join("<li>" + esc(n) + "</li>" for n in data["resume"].get("notes") or [])
     r = data["resume"]
+    site = data["site"]
+    cap = r.get("capabilities") or {}
+    cap_rows = "".join("<tr><th>" + esc(k) + "</th><td>" + " | ".join(esc(v) for v in (vals or [])) + "</td></tr>" for k, vals in cap.items())
+    selected = "".join(project_card(site, data["by_id"][i]) for i in r.get("selected") or [] if i in data["by_id"])
+    notes = "".join("<li>" + esc(n) + "</li>" for n in r.get("notes") or [])
+    links = []
+    for item in r.get("links") or []:
+        url = "" if item.get("action") else href(site, item.get("href") or "")
+        links.append(btn(item.get("label") or "link", url, external=bool(item.get("external")), action=item.get("action") or ""))
+    jobs = []
+    for job in r.get("experience") or []:
+        url = href(site, job["href"]) if job.get("href") else ""
+        title = esc(job.get("title") or "")
+        if url:
+            title = '<a href="' + esc(url) + '">' + title + '</a>'
+        jobs.append(
+            '<article class="axiom"><h3>' + esc(job.get("period") or "") + ' — ' + title + '</h3>'
+            + '<p class="headline">' + esc(job.get("org") or "") + '</p>'
+            + '<div class="prose"><p>' + esc(job.get("body") or "") + '</p></div></article>'
+        )
     body = (
         '<section class="hero"><p class="kicker">Human-readable index</p>'
-        + '<h1>' + esc(r.get("name") or data["site"]["name"]) + '</h1>'
+        + '<h1>' + esc(r.get("name") or site["name"]) + '</h1>'
         + '<p class="disciplines">' + esc(r.get("role") or "") + '</p>'
         + '<p class="tagline">' + esc(r.get("summary") or "") + '</p>'
-        + '<div class="cta-row"><a class="btn" href="' + esc(data["site"].get("github_org_url") or "#") + '" target="_blank" rel="noopener">GitHub</a>'
-        + '<button class="btn" onclick="window.print()">Print / PDF</button></div></section>'
+        + '<div class="cta-row">' + ''.join(links) + '</div></section>'
+        + '<section class="block"><p class="section-label">Record</p>' + ''.join(jobs) + '</section>'
         + '<section class="block"><p class="section-label">Capabilities</p><table class="stack-table">' + cap_rows + '</table></section>'
         + '<section class="block"><p class="section-label">Selected work</p><div class="grid-2">' + selected + '</div></section>'
         + '<section class="block"><ul class="checks">' + notes + '</ul></section>'
@@ -275,7 +315,7 @@ def render_timeline(data):
         name = p["name"] if p else (ev.get("project") or "")
         link = ('<a href="' + esc(project_href(data["site"], p["id"])) + '">' + esc(name) + '</a>') if p else esc(name)
         items.append('<li><div class="when">' + esc(ev.get("date")) + '</div><div class="rail"></div><div><h3>' + link + '</h3><p>' + esc(ev.get("event")) + '</p></div></li>')
-    body = '<section class="hero"><p class="kicker">Record</p><h1>Timeline</h1><p class="tagline">Work dated.</p></section><section class="block"><ol class="timeline">' + ''.join(items) + '</ol></section>'
+    body = '<section class="hero"><p class="kicker">Record</p><h1>Timeline</h1><p class="tagline">Work dated. Every heading is a dossier.</p></section><section class="block"><ol class="timeline">' + ''.join(items) + '</ol></section>'
     return page(data, "/timeline/", "Timeline", body)
 
 def render_principle(data):
@@ -300,7 +340,7 @@ def render_tech(data):
     for t in sorted(mapping):
         links = " | ".join('<a href="' + esc(project_href(data["site"], p["id"])) + '">' + esc(p["name"]) + '</a>' for p in mapping[t])
         blocks.append("<tr><th>" + esc(t) + "</th><td>" + links + "</td></tr>")
-    body = '<section class="hero"><p class="kicker">Derived</p><h1>Technology index</h1><p class="tagline">Generated from project YAML.</p></section><section class="block"><table class="stack-table">' + ''.join(blocks) + '</table></section>'
+    body = '<section class="hero"><p class="kicker">Derived</p><h1>Technology index</h1><p class="tagline">Generated from project YAML. Every name is a link.</p></section><section class="block"><table class="stack-table">' + ''.join(blocks) + '</table></section>'
     return page(data, "/tech/", "Index", body)
 
 def write_page(url_path, html):
