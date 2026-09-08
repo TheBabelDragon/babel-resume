@@ -1,0 +1,281 @@
+projects:
+  - id: field-os
+    name: "Field OS"
+    status: active
+    category: "systems"
+    repo: "TheBabelDragon/field-os"
+    headline: "A substrate-level contract for computational fields."
+    description: >
+      A deterministic field substrate where observation, delta admission,
+      tick state and replay form an executable causal spine.
+    problem: >
+      How do you make a simulated physical field deterministic, observable,
+      replayable and composable while mixing physical observations with
+      simulated deltas without pretending they are the same?
+    approach: |
+      Observation -> admission -> FieldDelta -> ordering -> FieldTick -> Replay
+    architecture: |
+      Field
+       +-- address (not a block type)
+            +-- observation
+            +-- FieldDelta
+            +-- provenance
+            +-- conservation audit
+    proves:
+      - deterministic state transitions
+      - validated deltas
+      - reproducible ticks
+      - replayable state
+      - synthetic != physical
+    technologies: [Python, JSON Schema, deterministic simulation, replay]
+    demonstrates: [Systems architecture, Deterministic state, Formal invariants]
+    implementation: "Python / stdlib / locked schemas"
+    featured: true
+    status_detail: {stage: active, build: passing, tests: passing, documentation: partial, hardware: none}
+
+  - id: metafield
+    name: "MetaField Engine"
+    status: active
+    category: "simulation"
+    repo: "TheBabelDragon/metafield-engine"
+    headline: "Field -> World -> Tick. Cross-domain universe substrate."
+    description: >
+      Canonical World state, ECS, multi-physics fields, hardware abstraction
+      and Aurora fabric. Optical-body, echo-grid and Aurora work become plugins.
+    problem: >
+      How do you keep one canonical world state when the writers are a renderer,
+      an FPGA loop, an ESP32 swarm and a simulation kernel?
+    approach: |
+      World -> Fields -> Hardware abstraction -> FieldTick -> Viewer
+    architecture: |
+      MetaField Engine
+       +-- World (canonical)
+       +-- Fields
+       +-- Aurora fabric
+       +-- Plugins
+    proves: [engine architecture, state transitions, plugin isolation, renderer-as-viewer]
+    technologies: [C++, CMake, field simulation, ECS, deterministic ticks]
+    demonstrates: [Engine architecture, State transitions, Simulation]
+    implementation: "C++ / CMake"
+    featured: true
+    status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: bylight-phy
+    name: "Bylight PHY"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/c3-field-swarm"
+    headline: "Communication through light."
+    description: >
+      Analog optical physical layer inside the ESP32-C3 swarm substrate.
+      Declared isolate. Field OS never hides it behind LINK_UP.
+    problem: >
+      How do distributed embedded nodes talk when RF is not the only channel,
+      and the physical layer must remain honest about analog failure?
+    approach: |
+      pulse train -> encoding -> CRC -> receiver recovery -> FieldObservation
+    architecture: |
+      c3-field-swarm
+       +-- FieldView / FieldDelta
+       +-- swarm time
+       +-- bylight_phy   (isolate)
+    proves: [embedded systems, physical-layer design, protocol design]
+    technologies: [ESP32-C3, C++, optical communication, FieldView, FieldDelta]
+    demonstrates: [Embedded systems, Physical-layer design, Protocol design]
+    implementation: "C++ / ESP32-C3"
+    featured: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: quack
+    name: "QUACK"
+    status: active
+    category: "AI infrastructure"
+    repo: "TheBabelDragon/throne-room"
+    headline: "An AI interaction / control layer."
+    description: >
+      Operational Field Observer plus agent-in-a-world loop. Live CSI/Aurora
+      path, FieldTick, operator ABI, and chat as actuator.
+    problem: >
+      How do you turn AI interaction into structured system changes without
+      letting the model become the kernel?
+    approach: |
+      operator / chat -> Throne Room ABI -> FieldTick -> admitted delta -> world / swarm
+    architecture: |
+      QUACK / throne-room
+       +-- operator ABI
+       +-- Field Observer
+       +-- CSI / Aurora path
+       +-- chat as actuator
+    proves: [AI systems, automation, repository orchestration, agent infrastructure]
+    technologies: [Python, operator ABI, FieldTick, CSI]
+    demonstrates: [AI systems, Automation, Agent infrastructure]
+    implementation: "Python"
+    featured: true
+    status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: canonsphere
+    name: "Canonsphere"
+    status: active
+    category: "visual computing"
+    repo: "TheBabelDragon/canonsphere"
+    headline: "Computational stereography."
+    description: >
+      Field state -> canonical bytes -> state hash -> deterministic sigil ->
+      stereographic system glyph.
+    problem: >
+      How do you make system state visible and checkable without a dashboard that lies?
+    approach: |
+      field state -> canonical bytes -> state hash -> deterministic sigil -> glyph
+    architecture: |
+      Canonsphere
+       +-- canonicalization
+       +-- hash
+       +-- glyph renderer
+    proves: [computer graphics, image processing, deterministic visualization]
+    technologies: [JavaScript, computational geometry, hashing]
+    demonstrates: [Computer graphics, Image processing, Interactive visualization]
+    implementation: "JavaScript"
+    featured: true
+    status_detail: {stage: active, build: passing, tests: unknown, documentation: partial, hardware: none}
+
+  - id: babel-interface
+    name: "babel-interface"
+    status: active
+    category: "AI infrastructure"
+    repo: "TheBabelDragon/babel-interface"
+    headline: "Self-describing, AI-addressable contract."
+    description: >
+      Metadata describes reality; it is not a second implementation.
+      An agent loads .babel/ecosystem.yml and walks the capability graph.
+    problem: >
+      How do you make a constellation of repositories addressable to an agent
+      without merging them or rewriting their internals?
+    approach: |
+      babel discover -> inspect graph -> find interface -> read schema -> invoke
+    architecture: |
+      .babel/
+       +-- manifest.yml
+       +-- capabilities.yml
+       +-- schemas/
+       +-- examples/
+       +-- relations.yml
+    proves: [information architecture, contract design, agent-addressable systems]
+    technologies: [Python, YAML, JSON Schema]
+    demonstrates: [Contract design, AI-addressable repos, Capability graphs]
+    implementation: "Python / PyYAML / stdlib"
+    featured: true
+    status_detail: {stage: active, build: passing, tests: passing, documentation: partial, hardware: none}
+
+  - id: pidder-padder
+    name: "PIDder Padder"
+    status: active
+    category: "control"
+    repo: "TheBabelDragon/pidder-padder"
+    headline: "Target + measurement -> bounded correction."
+    description: >
+      Portable closed-loop control layer. Duck Gate admits; Field OS observes;
+      PIDder Padder converges.
+    technologies: [C++, control theory, closed-loop]
+    demonstrates: [Control systems, Bounded correction]
+    featured: false
+    status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: c3-field-swarm
+    name: "C3 Field Swarm"
+    status: active
+    category: "hardware"
+    repo: "TheBabelDragon/c3-field-swarm"
+    headline: "Deterministic ESP32-C3 wireless swarm substrate."
+    description: >
+      Edge nodes that speak FieldView and FieldDelta. The physical counterpart
+      to MetaField.
+    technologies: [C++, ESP32-C3, ESP-NOW]
+    demonstrates: [Embedded swarm, Deterministic edge]
+    featured: false
+    status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: optical-body
+    name: "Optical Body S3"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/optical-body-s3"
+    headline: "Laser excitation + BPW34 measurement body."
+    description: >
+      ESP32-S3 optical field node. Emits FieldObservation packets.
+      Does not run MetaField; it is the physical body.
+    technologies: [C++, ESP32-S3, photodiode, laser]
+    demonstrates: [Physical sensing, FieldObservation]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: echo-grid
+    name: "Echo Grid Ultrasonic OS"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/echo-grid-ultrasonic-os"
+    headline: "Coupled field wavefield computer."
+    description: >
+      Real-time phased ultrasonic array controller. Field kernel +
+      FPGA Verilog + ESP32 swarm + visualization.
+    technologies: [Python, Verilog, ESP32, ultrasonics]
+    demonstrates: [Wavefield computing, FPGA + swarm]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: field-bus
+    name: "Field Bus"
+    status: active
+    category: "protocol"
+    repo: "TheBabelDragon/field-bus"
+    headline: "One language, many ESP32s."
+    description: >
+      Shared CAN / CAN-FD protocol for MetaField physical field nodes.
+    technologies: [C, CAN-FD]
+    demonstrates: [Protocol design, Embedded interconnect]
+    featured: false
+    status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: sprayplot
+    name: "Sprayplot"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/sprayplot"
+    headline: "Laser beacon tracker."
+    description: >
+      ESP32 base-station + robot-receiver firmware. Boundary map, dither-lock, ESP-NOW.
+    technologies: [C++, ESP32, ESP-NOW]
+    demonstrates: [Tracking, Closed-loop optics]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: wifi-sensing
+    name: "WiFi Sensing System"
+    status: experimental
+    category: "sensing"
+    repo: "TheBabelDragon/wifi-sensing-system"
+    headline: "CSI as a spatial field."
+    description: >
+      WiFi CSI spatial intelligence OS. Aurora-powered sensing, tracking,
+      and behavior understanding.
+    technologies: [Python, CSI, Aurora]
+    demonstrates: [RF sensing, Spatial intelligence]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: self-state-kernel
+    name: "SELF-State Kernel"
+    status: experimental
+    category: "systems"
+    repo: "TheBabelDragon/self-state-kernel"
+    headline: "Fail-closed kernel with hashable state."
+    description: >
+      Independent kernel with SELF.GET/SET, QUERY, RUN, IF, TRACE, INTEGRITY.
+    technologies: [Python, provenance]
+    demonstrates: [Kernel design, Integrity]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
