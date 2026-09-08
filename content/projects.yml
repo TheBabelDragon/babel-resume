@@ -4,6 +4,7 @@ projects:
     status: active
     category: "systems"
     repo: "TheBabelDragon/field-os"
+    tests_url: "https://github.com/TheBabelDragon/field-os/tree/main/tests"
     headline: "A substrate-level contract for computational fields."
     description: >
       A deterministic field substrate where observation, delta admission,
@@ -21,12 +22,7 @@ projects:
             +-- FieldDelta
             +-- provenance
             +-- conservation audit
-    proves:
-      - deterministic state transitions
-      - validated deltas
-      - reproducible ticks
-      - replayable state
-      - synthetic != physical
+    proves: [deterministic state transitions, validated deltas, reproducible ticks, replayable state, synthetic != physical]
     technologies: [Python, JSON Schema, deterministic simulation, replay]
     demonstrates: [Systems architecture, Deterministic state, Formal invariants]
     implementation: "Python / stdlib / locked schemas"
@@ -118,6 +114,8 @@ projects:
     status: active
     category: "visual computing"
     repo: "TheBabelDragon/canonsphere"
+    live: "https://github.com/TheBabelDragon/canonsphere/tree/main/pages"
+    tests_url: "https://github.com/TheBabelDragon/canonsphere/tree/main/tests"
     headline: "Computational stereography."
     description: >
       Field state -> canonical bytes -> state hash -> deterministic sigil ->
@@ -132,17 +130,18 @@ projects:
        +-- hash
        +-- glyph renderer
     proves: [computer graphics, image processing, deterministic visualization]
-    technologies: [JavaScript, computational geometry, hashing]
+    technologies: [JavaScript, Python, computational geometry, hashing]
     demonstrates: [Computer graphics, Image processing, Interactive visualization]
-    implementation: "JavaScript"
+    implementation: "Python + pages/"
     featured: true
-    status_detail: {stage: active, build: passing, tests: unknown, documentation: partial, hardware: none}
+    status_detail: {stage: active, build: passing, tests: passing, documentation: partial, hardware: none}
 
   - id: babel-interface
     name: "babel-interface"
     status: active
     category: "AI infrastructure"
     repo: "TheBabelDragon/babel-interface"
+    tests_url: "https://github.com/TheBabelDragon/babel-interface/tree/main/tests"
     headline: "Self-describing, AI-addressable contract."
     description: >
       Metadata describes reality; it is not a second implementation.
@@ -163,6 +162,28 @@ projects:
     technologies: [Python, YAML, JSON Schema]
     demonstrates: [Contract design, AI-addressable repos, Capability graphs]
     implementation: "Python / PyYAML / stdlib"
+    featured: true
+    status_detail: {stage: active, build: passing, tests: passing, documentation: partial, hardware: none}
+
+  - id: babel-resume
+    name: "babel-resume"
+    status: active
+    category: "portfolio"
+    repo: "TheBabelDragon/babel-resume"
+    live: "https://thebabeldragon.github.io/babel-resume/"
+    headline: "YAML is the source of truth."
+    description: >
+      This site. A GitHub-native engineering portfolio. Repositories are the
+      evidence. The renderer has no opinions the YAML does not already contain.
+    problem: >
+      How do you replace LinkedIn with something that can be forked, validated,
+      and deployed by pushing a file?
+    approach: |
+      YAML -> validate -> github-sync -> static HTML -> GitHub Pages
+    proves: [information architecture, CI/CD, static generation]
+    technologies: [Python, YAML, GitHub Actions]
+    demonstrates: [Portfolio as project, Forkable template]
+    implementation: "Python / PyYAML"
     featured: true
     status_detail: {stage: active, build: passing, tests: passing, documentation: partial, hardware: none}
 
@@ -276,6 +297,135 @@ projects:
       Independent kernel with SELF.GET/SET, QUERY, RUN, IF, TRACE, INTEGRITY.
     technologies: [Python, provenance]
     demonstrates: [Kernel design, Integrity]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: signal-processor
+    name: "Signal processor"
+    status: active
+    category: "signal"
+    repo: "TheBabelDragon/signal-processor"
+    live: "https://thebabeldragon.github.io/signal-processor/"
+    headline: "Binaural / isochronic / modulation processor."
+    description: >
+      Single-file-family browser app. Live preview and WAV export.
+      Also a babel-interface adapter.
+    technologies: [JavaScript, Web Audio]
+    demonstrates: [Signal processing, Browser instrument]
+    featured: false
+    lab: true
+    status_detail: {stage: active, build: passing, tests: unknown, documentation: partial, hardware: none}
+
+  - id: neuro-swarm
+    name: "Neuro swarm"
+    status: experimental
+    category: "visual computing"
+    repo: "TheBabelDragon/neuro-swarm"
+    live: "https://thebabeldragon.github.io/neuro-swarm/"
+    headline: "Player vs evolving AI murmuration."
+    description: >
+      Browser neuroevolution drone swarm. Adaptive drones that learn.
+      Pure static GitHub Pages.
+    technologies: [JavaScript, neuroevolution]
+    demonstrates: [Interactive simulation, Evolutionary AI]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: passing, tests: unknown, documentation: partial, hardware: none}
+
+  - id: metafield-qcd
+    name: "MetaField QCD"
+    status: experimental
+    category: "simulation"
+    repo: "TheBabelDragon/metafield"
+    headline: "Lattice QCD as a field workbench."
+    description: >
+      PyTorch SU(N) gauge fields, Wilson action, Wilson-Dirac, HMC,
+      learned Riemannian geometry on physical field configurations.
+    technologies: [Python, PyTorch, lattice QCD]
+    demonstrates: [Mathematical physics, Autograd fields]
+    featured: false
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: eeg-loop
+    name: "EEG loop"
+    status: experimental
+    category: "sensing"
+    repo: "TheBabelDragon/eeg-loop"
+    headline: "Acquisition to closed-loop control."
+    description: >
+      Minimal EEG platform: acquire, analyze, infer, act. Another field body.
+    technologies: [Python, signal analysis]
+    demonstrates: [Biosignals, Closed-loop]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: babelbus
+    name: "BabelBus"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/BabelBus"
+    headline: "Video-only IP display bus."
+    description: >
+      ESP32-P4 HDMI-to-CSI remote viewer. JPEG/MJPEG only. No keyboard/mouse HID.
+    technologies: [C, ESP32-P4]
+    demonstrates: [Embedded video, Constrained bus]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: hall-node
+    name: "Hall node S3"
+    status: prototype
+    category: "hardware"
+    repo: "TheBabelDragon/hall-node-s3"
+    headline: "10x Hall -> Field Bus."
+    description: >
+      ESP32-S3 Hall-array edge node. Stub until sensors are wired.
+    technologies: [C++, ESP32-S3, CAN-FD]
+    demonstrates: [Sensor node, Field Bus]
+    featured: false
+    lab: true
+    status_detail: {stage: prototype, build: unknown, tests: unknown, documentation: partial, hardware: stub}
+
+  - id: arty-realtime
+    name: "Arty realtime"
+    status: experimental
+    category: "hardware"
+    repo: "TheBabelDragon/arty-realtime"
+    headline: "Fast physical loop vs slow model loop."
+    description: >
+      Arty A7 boundary: S/PDIF audio highway, Field Bus southbound, FT601 to MetaField.
+    technologies: [Python, FPGA, S/PDIF]
+    demonstrates: [Realtime boundary, FPGA host]
+    featured: false
+    lab: true
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: prototype}
+
+  - id: metafield-abi
+    name: "MetaField operator ABI"
+    status: experimental
+    category: "systems"
+    repo: "TheBabelDragon/metafield-operator-abi"
+    headline: "Mathematics defines the operators."
+    description: >
+      Wilson-Dirac v1 frozen. Backends implement operators. FPGA/ASIC do not redefine them.
+    technologies: [Python, operator ABI]
+    demonstrates: [Contract isolation, Mathematical operators]
+    featured: false
+    status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
+
+  - id: aurora-btc
+    name: "Aurora swarm BTC"
+    status: experimental
+    category: "systems"
+    repo: "TheBabelDragon/aurora-swarm-btc"
+    headline: "Entropy-driven mining swarm."
+    description: >
+      Production entropy-driven Bitcoin mining swarm. They yearn for the mines.
+    technologies: [Python]
+    demonstrates: [Swarm coordination]
     featured: false
     lab: true
     status_detail: {stage: experimental, build: unknown, tests: unknown, documentation: partial, hardware: none}
