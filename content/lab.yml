@@ -90,7 +90,8 @@ lab:
         Pythonista generative-art organism. Early surface before the field stack.
     - id: metafield-work
       name: "Operator workbench"
-      status: experimental
+      status: active
       project: metafield-work
       blurb: >
-        Local twin of the frozen Wilson–Dirac ABI. Backends swap; math does not.
+        Operator isolation workbench. Wilson–Dirac stays a plug-and-play
+        contract; backends swap, math does not.
