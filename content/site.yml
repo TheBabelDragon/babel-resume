@@ -13,6 +13,10 @@ site:
   site_url: "https://thebabeldragon.github.io/babel-resume/"
   base_path: "/babel-resume"
   lab_label: "ENGINEERING / LAB"
+  discover:
+    enabled: true
+    include_private: false
+    ignore_repos: []
 
 navigation:
   - id: projects
