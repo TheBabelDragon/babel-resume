@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Refresh GitHub evidence and discover public repos not yet in projects.yml.
 
-Curated YAML wins. Discovered stubs are generated into
-content/.generated/ and merged at build time. They are never written
-back into projects.yml.
+Curated YAML in git wins. This script writes generated stubs and, in the
+build workspace only, appends them to content/projects.yml and content/lab.yml
+so the existing renderer publishes new public repos without a manual edit.
+Those workspace writes are not committed (.generated/ is gitignored; the
+YAML mutations live only for the current Actions run).
 """
 from __future__ import annotations
 
@@ -11,13 +13,12 @@ import json
 import os
 import re
 import sys
-import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from build import CONTENT, ROOT, load_yaml  # noqa: E402
+from build import CONTENT, load_yaml  # noqa: E402
 
 API = "https://api.github.com"
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or ""
@@ -158,6 +159,37 @@ def stub_from_repo(j: dict, taken: set) -> dict:
     return out
 
 
+def yaml_dump(doc) -> str:
+    import yaml
+
+    return yaml.safe_dump(doc, sort_keys=False, allow_unicode=True)
+
+
+def apply_workspace(projects, discovered):
+    if not discovered:
+        return
+    merged = list(projects) + discovered
+    (CONTENT / "projects.yml").write_text(yaml_dump({"projects": merged}))
+    lab_doc = load_yaml("lab.yml")
+    lab = lab_doc["lab"]
+    items = list(lab.get("items") or [])
+    seen = {i.get("project") or i.get("id") for i in items}
+    for p in discovered:
+        if p["id"] in seen:
+            continue
+        items.append({
+            "id": p["id"],
+            "name": p.get("name") or p["id"],
+            "status": p.get("status") or "experimental",
+            "project": p["id"],
+            "blurb": p.get("headline") or p.get("description") or "",
+        })
+        seen.add(p["id"])
+    lab["items"] = items
+    (CONTENT / "lab.yml").write_text(yaml_dump(lab_doc))
+    print(f"workspace merge {len(discovered)} discovered projects")
+
+
 def main() -> int:
     site = load_yaml("site.yml")["site"]
     discover = site.get("discover") or {}
@@ -193,7 +225,6 @@ def main() -> int:
         else:
             print("synced", full)
 
-    # Also fetch any curated repos the user list missed (renames, other owners).
     for repo in sorted(known_repos):
         if not repo or any(m.get("full_name", "").lower() == repo for m in catalog.values()):
             continue
@@ -207,20 +238,10 @@ def main() -> int:
     dest = CONTENT / ".generated"
     dest.mkdir(parents=True, exist_ok=True)
     (dest / "github.json").write_text(json.dumps(catalog, indent=2) + "\n")
-    (dest / "discovered.yml").write_text(
-        yaml_dump({"projects": discovered}) if discovered else "projects: []\n"
-    )
+    (dest / "discovered.yml").write_text(yaml_dump({"projects": discovered}))
+    apply_workspace(projects, discovered)
     print(f"wrote {len(catalog)} github records, {len(discovered)} discovered stubs")
     return 0
-
-
-def yaml_dump(doc: dict) -> str:
-    try:
-        import yaml
-
-        return yaml.safe_dump(doc, sort_keys=False, allow_unicode=True)
-    except Exception:
-        return json.dumps(doc, indent=2)
 
 
 if __name__ == "__main__":
