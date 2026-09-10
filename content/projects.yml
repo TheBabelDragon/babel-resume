@@ -120,6 +120,40 @@ projects:
     featured: true
     status_detail: {stage: active, build: unknown, tests: unknown, documentation: partial, hardware: none}
 
+  - id: telescoping-cones
+    name: "Telescoping Cones"
+    status: experimental
+    category: "visual computing"
+    repo: "TheBabelDragon/telescoping-cones"
+    live: "https://thebabeldragon.github.io/telescoping-cones/"
+    tests_url: "https://github.com/TheBabelDragon/telescoping-cones/tree/main/tests"
+    examples_url: "https://github.com/TheBabelDragon/telescoping-cones/tree/main/pages"
+    headline: "Geometric attention. Nested cones, not a renamed Transformer."
+    description: >
+      Information enters a wide cross-section, is compressed by nested cones,
+      and exits as state. Geometry is a real attention bias. Canonsphere
+      witnesses it; MetaField owns the transform; Aurora only splits what
+      deserves compute.
+    problem: >
+      How do you make attention geometric — a region of a field that
+      telescopes inward — without pretending a Transformer layer is a cone?
+    approach: |
+      field -> nested cones C_k -> A^cone bias -> softmax(QK^T + λ A^cone) -> state -> memory
+    architecture: |
+      telescoping-cones
+       +-- geometry (backend-independent)
+       +-- ConeAttention
+       +-- Aurora routing
+       +-- cone-state-v0.1
+       +-- pages/ instrument
+    proves: [geometric attention, adaptive collapse, stereographic identity, protocol]
+    technologies: [Python, NumPy, PyTorch optional, JavaScript, Three.js, GitHub Pages]
+    demonstrates: [Geometric operators, Attention, Interactive visualization]
+    implementation: "Python + pages/"
+    featured: true
+    lab: true
+    status_detail: {stage: experimental, build: passing, tests: passing, documentation: partial, hardware: none}
+
   - id: canonsphere
     name: "Canonsphere"
     status: active

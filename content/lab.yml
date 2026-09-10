@@ -51,6 +51,13 @@ lab:
       project: babelbus
       blurb: >
         ESP32-P4 HDMI-to-CSI video-only IP display bus. No HID. Safer viewer.
+    - id: telescoping-cones
+      name: "Telescoping Cones"
+      status: experimental
+      project: telescoping-cones
+      blurb: >
+        Geometric attention operator. Nested cones compress a field into
+        state. The running page is the instrument.
     - id: neuro-swarm
       name: "Neuro swarm"
       status: experimental
